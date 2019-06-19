@@ -1,0 +1,20 @@
+<form>
+  <mat-form-field>
+    
+    <mat-select [(ngModel)]="selectedCountry" [formControl]="countryControl" (selectionChange)="checkSelection()" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let country of countryList" [value]="country.countryId">
+        {{country.countryName }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="countryControl.hasError('required')">Please choose a valid country </mat-error>
+    
+  </mat-form-field>
+
+  <mat-form-field *ngIf= "isVisible" class="example-full-width">
+    <textarea matInput placeholder="Postal Selection"></textarea>
+  </mat-form-field>
+  
+   
+  
+</form>
